@@ -513,7 +513,7 @@ html.c-down .cur .lg{transform:scale(.8)}
           <canvas id="tv" aria-label="Million Crowns TV, rotating channels" role="img"></canvas>
           <div class="ov">
             <div class="ov-top"><span class="onair">On air</span><span class="chip" id="chNum">CH 01</span></div>
-            <div class="ov-bot"><div><b id="chTitle">In the Studio</b><small id="chSub">Debut EP · prod. Donn Robb &amp; OZ ON THE TRACK</small></div><span class="ov-brand">Million Crowns TV</span></div>
+            <div class="ov-bot"><div><b id="chTitle">In the Studio</b><small id="chSub"></small></div><span class="ov-brand">Million Crowns TV</span></div>
           </div>
           <div class="bar" id="chBar"></div>
         </div>
@@ -844,9 +844,9 @@ var GOLD = '#f5c518';
 /* ---------- Million Crowns TV ---------- */
 /* To use real footage, set video to a clip URL published with the page, e.g. video:'clips/studio.mp4' */
 var CHANNELS = [
-  {key:'studio', title:'In the Studio', sub:'Debut EP · prod. Donn Robb & OZ ON THE TRACK', video:''},
+  {key:'studio', title:'In the Studio', sub:'', video:''},
   {key:'moon',   title:'Moon Light Moments', sub:window.MLM_OUT ? 'Jodieous · Out now' : 'Jodieous · Out October 26, 2026', video:''},
-  {key:'tour',   title:'On the Road', sub:'What You Been Missing Tour · 5 cities', video:''},
+  {key:'tour',   title:'On the Road', sub:'', video:''},
   {key:'vinyl',  title:'The Catalog', sub:'MCM-001 to MCM-004 · Million Crowns Music', video:''}
 ];
 var DURATION = 8000;
