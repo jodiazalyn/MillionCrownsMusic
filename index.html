@@ -25,6 +25,12 @@
 .sleeve .peek .label{position:static;width:40%}
 .sleeve .peek .label b{font-size:clamp(.55rem,1.4vw,.9rem)}
 .sleeve .peek .label small{font-size:.45rem}
+
+/* artist avatar in roster cards */
+.mini-disc.has-photo{position:relative;width:72px;height:72px;padding:0;border:2px solid var(--brass);overflow:visible}
+.mini-disc.has-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;max-width:none;display:block}
+.mini-disc.has-photo span{position:absolute;right:-6px;bottom:-6px;width:26px;height:26px;border:2px solid var(--oxblood);font-size:.5rem}
+.mini:hover .mini-disc.has-photo img{transform:scale(1.05);transition:transform .3s}
 </style>
 </head>
 <body style="margin:0">
@@ -506,7 +512,7 @@ html.c-down .cur .lg{transform:scale(.8)}
       </article>
       <div class="roster">
         <article class="mini" data-artist="jretro">
-          <div class="mini-disc" aria-hidden="true"><span>JR</span></div>
+          <div class="mini-disc has-photo" aria-hidden="true"><img src="assets/jretro.jpg" alt="" width="84" height="84" loading="lazy"><span>JR</span></div>
           <div class="mini-body"><span class="mono">Portfolio artist</span><h3>J Retro</h3><button class="play-btn" type="button" data-artist="jretro">Play unreleased music</button></div>
         </article>
         <article class="mini" data-artist="bella">
@@ -1000,7 +1006,7 @@ var ARTISTS = [
    bio:'Melodic pop and rap from an artist who writes, produces, engineers, and plays guitar. Debut EP produced by Donn Robb and OZ ON THE TRACK, recorded entirely in Chicago.',
    links:[['Spotify ↗','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music ↗','https://music.apple.com/us/artist/jodieous/1796343715']],
    socials:[['Instagram','@jodieous','https://www.instagram.com/jodieous'],['TikTok','@jodieous','https://www.tiktok.com/@jodieous'],['YouTube','@Jodieous_Sound','https://www.youtube.com/@Jodieous_Sound'],['X','@jodieous','https://x.com/jodieous'],['Spotify','Jodieous','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music','Jodieous','https://music.apple.com/us/artist/jodieous/1796343715']]},
-  {key:'jretro', name:'J Retro', initials:'JR', tag:'Portfolio artist', photo:'', teaser:'', track:'Unreleased music', note:'New music coming soon', bio:'Part of the Million Crowns portfolio. Full profile and music coming soon.', links:[], socials:[]},
+  {key:'jretro', name:'J Retro', initials:'JR', tag:'Portfolio artist', photo:'assets/jretro.jpg', teaser:'', track:'Unreleased music', note:'New music coming soon', bio:'Part of the Million Crowns portfolio. Full profile and music coming soon.', links:[], socials:[]},
   {key:'bella', name:'Bella', initials:'B', tag:'Portfolio artist', photo:'', teaser:'', track:'Unreleased music', note:'New music coming soon', bio:'Part of the Million Crowns portfolio. Full profile and music coming soon.', links:[], socials:[]},
   {key:'tre', name:'Tre', initials:'T', tag:'Portfolio artist', photo:'', teaser:'', track:'Unreleased music', note:'New music coming soon', bio:'Part of the Million Crowns portfolio. Full profile and music coming soon.', links:[], socials:[]},
   {key:'squarez', name:'Squarez', initials:'SQ', tag:'Portfolio artist', photo:'', teaser:'', track:'Unreleased music', note:'New music coming soon', bio:'Part of the Million Crowns portfolio. Full profile and music coming soon.', links:[], socials:[]}
