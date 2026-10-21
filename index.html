@@ -31,6 +31,33 @@
 .mini-disc.has-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;max-width:none;display:block}
 .mini-disc.has-photo span{position:absolute;right:-6px;bottom:-6px;width:26px;height:26px;border:2px solid var(--oxblood);font-size:.5rem}
 .mini:hover .mini-disc.has-photo img{transform:scale(1.05);transition:transform .3s}
+
+/* featured release: Moon Light Moments */
+.feature{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;border:1px solid var(--line);margin-bottom:40px;background:#0a0a0a;color:#fff}
+.feature-art{position:relative;aspect-ratio:1;max-width:100%;overflow:hidden}
+.feature-art img{width:100%;height:100%;object-fit:cover;max-width:none;display:block;transition:transform .8s ease}
+.feature:hover .feature-art img{transform:scale(1.03)}
+.feature-body{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;justify-content:center;gap:18px;min-width:0}
+.feature-body .mono{color:var(--brass)}
+.feature-body h3{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(2.8rem,7vw,5.6rem);line-height:.88;text-wrap:balance}
+.feature-body p{margin:0;color:rgba(255,255,255,.72);max-width:46ch}
+.feature-meta{display:flex;flex-wrap:wrap;gap:8px}
+.feature-meta span{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.22);padding:6px 10px}
+.countdown{display:flex;gap:10px;font-variant-numeric:tabular-nums}
+.countdown div{display:flex;flex-direction:column;align-items:center;min-width:64px;border:1px solid rgba(245,197,24,.45);padding:10px 8px}
+.countdown b{font-family:var(--display);font-weight:400;font-size:2rem;line-height:1;color:var(--brass)}
+.countdown small{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px}
+.btn.presave{background:var(--brass);color:#0a0a0a;border-color:var(--brass);font-weight:500}
+.btn.presave:hover{background:#fff;color:#0a0a0a;border-color:#fff}
+.btn.presave.dark{background:var(--bone);color:var(--oxblood);border-color:var(--bone)}
+.btn.presave.dark:hover{background:var(--brass);color:#0a0a0a;border-color:var(--brass)}
+.cat .cover{display:inline-block;width:40px;height:40px;vertical-align:middle;margin-right:12px;object-fit:cover;max-width:none}
+.cat .tag-link{display:inline-block;margin-left:8px;font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;background:var(--bone);color:var(--oxblood);padding:4px 8px}
+.cat .tag-link:hover{background:var(--brass);color:#0a0a0a}
+.hero-top a{color:inherit;text-decoration:none;border-bottom:1px solid var(--brass)}
+.hero-top a:hover{color:var(--gold-ink)}
+.thumb.t-moon{background:url(assets/moon-light-moments.jpg) center/cover}
+@media (max-width:820px){.feature{grid-template-columns:1fr}}
 </style>
 </head>
 <body style="margin:0">
@@ -448,7 +475,7 @@ html.c-down .cur .lg{transform:scale(.8)}
     <div class="wrap">
       <div class="hero-top">
         <span class="mono">The label of the future</span>
-        <span class="mono">Moon Light Moments · Oct 26</span>
+        <span class="mono"><a href="https://vyd.co/MoonLightMoments" target="_blank" rel="noopener">Pre-save Moon Light Moments · Oct 26 ↗</a></span>
       </div>
       <h1 class="word">
         <span class="crown-line line" data-shift="-1">Million <span class="lg lg-crown hero-crown" aria-hidden="true"></span></span>
@@ -499,13 +526,14 @@ html.c-down .cur .lg{transform:scale(.8)}
           <p>His debut single, "What You Been Missing," produced by Donn Robb (The Kid LAROI, Juice WRLD, G Herbo), arrived July 17, 2026 with a five-city tour. His debut EP, produced by Donn Robb and OZ ON THE TRACK, was recorded entirely in Chicago.</p>
           <dl class="facts">
             <div><dt>Debut single</dt><dd>What You Been Missing</dd></div>
-            <div><dt>Next single</dt><dd>Moon Light Moments, Oct 26</dd></div>
+            <div><dt>Next single</dt><dd><a href="https://vyd.co/MoonLightMoments" target="_blank" rel="noopener">Moon Light Moments</a>, Oct 26</dd></div>
             <div><dt>Producers</dt><dd>Donn Robb, OZ ON THE TRACK</dd></div>
             <div><dt>Booking</dt><dd>booking@jodieous.com</dd></div>
           </dl>
           <div class="links">
             <a class="btn solid" href="https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK" target="_blank" rel="noopener">Spotify ↗</a>
             <a class="btn" href="https://music.apple.com/us/artist/jodieous/1796343715" target="_blank" rel="noopener">Apple Music ↗</a>
+            <a class="btn presave dark" href="https://vyd.co/MoonLightMoments" target="_blank" rel="noopener">Pre-save Moon Light Moments ↗</a>
             <a class="btn" href="https://jodieous.com" target="_blank" rel="noopener">jodieous.com ↗</a>
             <button class="btn" type="button" data-artist="jodieous">▶ Unreleased music</button>
           </div>
@@ -539,6 +567,17 @@ html.c-down .cur .lg{transform:scale(.8)}
   <section class="block" id="releases">
     <div class="wrap">
       <div class="sec-head" data-drift=".6"><span class="mono">02 / Catalog</span><h2>Releases</h2></div>
+      <article class="feature" id="moon-light-moments">
+        <a class="feature-art" href="https://vyd.co/MoonLightMoments" target="_blank" rel="noopener" aria-label="Pre-save Moon Light Moments"><img src="assets/moon-light-moments.jpg" alt="Moon Light Moments cover art" width="900" height="900" loading="lazy"></a>
+        <div class="feature-body">
+          <span class="mono">Next release · MCM-002</span>
+          <h3>Moon Light Moments</h3>
+          <p>The new single from Jodieous, produced by OZ ON THE TRACK. Out everywhere October 26, 2026. Pre-save it now so it lands in your library on release day.</p>
+          <div class="feature-meta"><span>Jodieous</span><span>Single</span><span>prod. OZ ON THE TRACK</span><span>Million Crowns Music</span></div>
+          <div class="countdown" id="countdown" aria-label="Time until release"><div><b id="cdD">--</b><small>Days</small></div><div><b id="cdH">--</b><small>Hours</small></div><div><b id="cdM">--</b><small>Min</small></div></div>
+          <div class="links"><a class="btn presave" href="https://vyd.co/MoonLightMoments" target="_blank" rel="noopener">Pre-save now ↗</a></div>
+        </div>
+      </article>
       <div class="cat-wrap">
         <table class="cat">
           <thead><tr><th>Cat. no.</th><th>Title</th><th>Artist</th><th>Format</th><th>Status</th></tr></thead>
@@ -552,10 +591,10 @@ html.c-down .cur .lg{transform:scale(.8)}
             </tr>
             <tr>
               <td class="no">MCM-002</td>
-              <td class="t"><span class="disc" aria-hidden="true"></span>Moon Light Moments</td>
+              <td class="t"><img class="cover" src="assets/moon-light-moments.jpg" alt="" width="40" height="40" loading="lazy">Moon Light Moments</td>
               <td>Jodieous<br><span class="cred">prod. OZ ON THE TRACK</span></td>
               <td>Single</td>
-              <td><span class="tag">Oct 26, 2026</span></td>
+              <td><span class="tag">Oct 26, 2026</span><a class="tag-link" href="https://vyd.co/MoonLightMoments" target="_blank" rel="noopener">Pre-save ↗</a></td>
             </tr>
             <tr class="soon">
               <td class="no">MCM-003</td>
@@ -847,7 +886,9 @@ function scStudio(t){
   }
   ctx.stroke();
 }
+var moonImg = new Image(); moonImg.src = 'assets/moon-light-moments.jpg';
 function scMoon(t){
+  if (moonImg.complete && moonImg.naturalWidth){ var z = 1.08 + Math.sin(t*0.15)*0.05, s = Math.max(W, H) * z; ctx.fillStyle = '#000'; ctx.fillRect(0,0,W,H); ctx.drawImage(moonImg, (W - s)/2, Math.min(0, (H - s)/2 + s*0.22), s, s); return; }
   var g = ctx.createLinearGradient(0,0,0,H); g.addColorStop(0,'#030303'); g.addColorStop(1,'#16120a');
   ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
   stars.forEach(function(s){ ctx.globalAlpha = 0.35 + 0.65*Math.abs(Math.sin(t*0.9 + s[3])); ctx.fillStyle = '#fff'; ctx.fillRect(((s[0] + t*0.004) % 1)*W, s[1]*H, s[2]*DPR, s[2]*DPR); });
@@ -1005,7 +1046,7 @@ requestAnimationFrame(tick);
 var ARTISTS = [
   {key:'jodieous', name:'Jodieous', initials:'J', tag:'Flagship artist', photo:'assets/jodieous.jpg', teaser:'', track:'Moon Light Moments', note:'Out October 26, 2026',
    bio:'Melodic pop and rap from an artist who writes, produces, engineers, and plays guitar. Debut EP produced by Donn Robb and OZ ON THE TRACK, recorded entirely in Chicago.',
-   links:[['Spotify ↗','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music ↗','https://music.apple.com/us/artist/jodieous/1796343715']],
+   links:[['Pre-save Moon Light Moments ↗','https://vyd.co/MoonLightMoments'],['Spotify ↗','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music ↗','https://music.apple.com/us/artist/jodieous/1796343715']],
    socials:[['Instagram','@jodieous','https://www.instagram.com/jodieous'],['TikTok','@jodieous','https://www.tiktok.com/@jodieous'],['YouTube','@Jodieous_Sound','https://www.youtube.com/@Jodieous_Sound'],['X','@jodieous','https://x.com/jodieous'],['Spotify','Jodieous','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music','Jodieous','https://music.apple.com/us/artist/jodieous/1796343715']]},
   {key:'jretro', name:'J Retro', initials:'JR', tag:'Portfolio artist', photo:'assets/jretro.jpg', teaser:'', track:'Unreleased music', note:'New music coming soon', bio:'Part of the Million Crowns portfolio. Full profile and music coming soon.', links:[], socials:[['Instagram','@jretroo','https://www.instagram.com/jretroo/']]},
   {key:'bella', name:'Bella', initials:'B', tag:'Portfolio artist', photo:'assets/bella.jpg', teaser:'', track:'Unreleased music', note:'New music coming soon', bio:'Part of the Million Crowns portfolio. Full profile and music coming soon.', links:[], socials:[]},
@@ -1145,6 +1186,22 @@ addEventListener('pointerup', function(){ root.classList.remove('c-down'); });
   cur.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
   ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
 })();
+})();
+
+(function(){
+var rel = new Date('2026-10-26T00:00:00-07:00').getTime(), cd = document.getElementById('countdown');
+if (!cd) return;
+function pad(n){ return (n < 10 ? '0' : '') + n; }
+function tick(){
+  var ms = rel - Date.now();
+  if (ms <= 0){ cd.innerHTML = '<div><b>Out now</b><small>Stream it</small></div>'; return; }
+  var m = Math.floor(ms / 60000);
+  document.getElementById('cdD').textContent = Math.floor(m / 1440);
+  document.getElementById('cdH').textContent = pad(Math.floor(m % 1440 / 60));
+  document.getElementById('cdM').textContent = pad(m % 60);
+  setTimeout(tick, 15000);
+}
+tick();
 })();
 </script>
 
