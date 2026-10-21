@@ -12,6 +12,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap">
 <meta name="description" content="Million Crowns Music is the label of the future: co-investors in artists, backing musicians from day one with technology, cultural influence, and major-label relationships.">
 <meta property="og:title" content="Million Crowns Music">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Million Crowns Music">
+<meta property="og:url" content="https://millioncrownsmusic.com/">
+<meta property="og:image" content="https://millioncrownsmusic.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Million Crowns Music logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Million Crowns Music">
+<meta name="twitter:description" content="The label of the future. Co-investors in artists. Music is just the beginning.">
+<meta name="twitter:image" content="https://millioncrownsmusic.com/assets/og-image.jpg">
 <meta property="og:description" content="The label of the future. Co-investors in artists. Music is just the beginning.">
 <style>[hidden]{display:none!important}img{max-width:100%}
 /* artist photo in sleeve */
@@ -682,7 +693,7 @@ html.c-down .cur .lg{transform:scale(.8)}
         <p class="lead">Our artists get access to the rooms that move careers: <b>label executives</b>, <b>major labels</b>, platinum producers, and the studios where classics were made.</p>
         <div class="about-col">
           <p>Million Crowns works alongside executives and partners at major labels across Los Angeles, Atlanta, Houston, and Chicago. We open those relationships to every artist we invest in, so the right deal, the right producer, and the right audience arrive at the right time.</p>
-          <p>Our artists record in major studios across the country, including legendary rooms like the Record Plant in Los Angeles, where Hotel California, Rumours, and The College Dropout were made, and SugarHill Recording Studios in Houston, the oldest continuously operating recording studio in the United States, along with ATS Records. In those rooms they work side by side with the producers and engineers who shaped the sound of past generations and are shaping the sound of the next one.</p>
+          <p>Our artists record in major studios across the country, including legendary rooms like the Record Plant in Los Angeles, where Hotel California, Rumours, and The College Dropout were made, and SugarHill Recording Studios in Houston, the oldest continuously operating recording studio in the United States, and At The Studio (ATS) in Chicago, where Chance the Rapper, Juice WRLD, Lil Durk, King Von, and Future have all worked. In those rooms they work side by side with the producers and engineers who shaped the sound of past generations and are shaping the sound of the next one.</p>
         </div>
       </div>
       <div class="credits">
@@ -807,6 +818,8 @@ html.c-down .cur .lg{transform:scale(.8)}
 </footer>
 
 <script>
+window.MLM_OUT = Date.now() >= new Date('2026-10-26T00:00:00-07:00').getTime();
+
 document.querySelectorAll('.copy').forEach(function(b){
   b.addEventListener('click',function(){
     var t=b.getAttribute('data-copy');
@@ -832,7 +845,7 @@ var GOLD = '#f5c518';
 /* To use real footage, set video to a clip URL published with the page, e.g. video:'clips/studio.mp4' */
 var CHANNELS = [
   {key:'studio', title:'In the Studio', sub:'Debut EP · prod. Donn Robb & OZ ON THE TRACK', video:''},
-  {key:'moon',   title:'Moon Light Moments', sub:'Jodieous · Out October 26, 2026', video:''},
+  {key:'moon',   title:'Moon Light Moments', sub:window.MLM_OUT ? 'Jodieous · Out now' : 'Jodieous · Out October 26, 2026', video:''},
   {key:'tour',   title:'On the Road', sub:'What You Been Missing Tour · 5 cities', video:''},
   {key:'vinyl',  title:'The Catalog', sub:'MCM-001 to MCM-004 · Million Crowns Music', video:''}
 ];
@@ -1066,9 +1079,9 @@ requestAnimationFrame(tick);
 /* Add an artist photo and teaser by publishing the files with the page and setting the paths below,
    e.g. photo:'artists/bella.jpg', teaser:'audio/bella-teaser.mp3' */
 var ARTISTS = [
-  {key:'jodieous', name:'Jodieous', initials:'J', tag:'Flagship artist', photo:'assets/jodieous.jpg', teaser:'audio/jodieous-moon-light-moments.mp3', track:'Moon Light Moments', note:'Hook preview · Out October 26',
+  {key:'jodieous', name:'Jodieous', initials:'J', tag:'Flagship artist', photo:'assets/jodieous.jpg', teaser:'audio/jodieous-moon-light-moments.mp3', track:'Moon Light Moments', note:window.MLM_OUT ? 'Hook preview · Out now' : 'Hook preview · Out October 26',
    bio:'Melodic pop and rap from an artist who writes, produces, engineers, and plays guitar. Debut EP produced by Donn Robb and OZ ON THE TRACK, recorded entirely in Chicago.',
-   links:[['Pre-save Moon Light Moments ↗','https://vyd.co/MoonLightMoments'],['Listen to What You Been Missing ↗','https://open.spotify.com/album/1YlckX2ecyDRITI3SYGi1w'],['Spotify ↗','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music ↗','https://music.apple.com/us/artist/jodieous/1796343715']],
+   links:[[window.MLM_OUT ? 'Listen to Moon Light Moments ↗' : 'Pre-save Moon Light Moments ↗','https://vyd.co/MoonLightMoments'],['Listen to What You Been Missing ↗','https://open.spotify.com/album/1YlckX2ecyDRITI3SYGi1w'],['Spotify ↗','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music ↗','https://music.apple.com/us/artist/jodieous/1796343715']],
    socials:[['Instagram','@jodieous','https://www.instagram.com/jodieous'],['TikTok','@jodieous','https://www.tiktok.com/@jodieous'],['YouTube','@Jodieous_Sound','https://www.youtube.com/@Jodieous_Sound'],['X','@jodieous','https://x.com/jodieous'],['Spotify','Jodieous','https://open.spotify.com/artist/55bQcZFCVyVznTYI82bAIK'],['Apple Music','Jodieous','https://music.apple.com/us/artist/jodieous/1796343715']]},
   {key:'jretro', name:'J Retro', initials:'JR', tag:'New York · Rap, pop, melodic', photo:'assets/jretro.jpg', teaser:'audio/jretro-really-love-me.mp3', track:'Really Love Me', note:'Unreleased · Hook preview', bio:'J Retro is a New York artist, model, and actor who moves easily between rap, pop, and melodic records. He brings the presence of someone used to being in front of a camera, pairing sharp, confident verses with hooks built to stick and a smooth melodic side that carries the late-night songs. His unreleased single "Really Love Me" shows that range.', links:[], socials:[['Instagram','@jretroo','https://www.instagram.com/jretroo/']]},
   {key:'bella', name:'Bella', initials:'B', tag:'Austin, TX · Pop, ballads', photo:'assets/bella.jpg', teaser:'audio/bella-dont-come-back.mp3', track:'Don\'t Come Back', note:'Unreleased · Hook preview', bio:'Bella is a pop and ballad artist from Austin, Texas, and a creative dancer, vocal lyricist, and tattoo artist. Whether she is moving, writing, or working with ink, she makes art people carry with them, building upbeat pop songs and slow, stripped-down ballads around emotion, rhythm, and lyrics that land like pages from a diary. Her unreleased record "Don\'t Come Back" leads the way.', links:[], socials:[]},
@@ -1224,6 +1237,28 @@ function tick(){
   setTimeout(tick, 15000);
 }
 tick();
+})();
+
+/* Moon Light Moments: switch pre-save copy to "out now" on release day */
+(function(){
+if (!window.MLM_OUT) return;
+var map = [
+  ['Pre-save Moon Light Moments · Oct 26 ↗','Moon Light Moments · Out now ↗'],
+  ['Moon Light Moments Oct 26','Moon Light Moments out now'],
+  ['Next release · MCM-002','New release · MCM-002'],
+  ['Pre-save now ↗','Listen now ↗'],
+  ['Out everywhere October 26, 2026. Pre-save it now so it lands in your library on release day.','Out everywhere now. Stream it on your favorite platform.'],
+  ['Pre-save Moon Light Moments ↗','Listen to Moon Light Moments ↗'],
+  ['MCM-002 · Oct 26','MCM-002 · Out now']
+];
+var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+while ((n = w.nextNode())){
+  var t = n.nodeValue;
+  map.forEach(function(p){ if (t.indexOf(p[0]) > -1) t = t.split(p[0]).join(p[1]); });
+  if (t !== n.nodeValue) n.nodeValue = t;
+}
+var row = [].slice.call(document.querySelectorAll('.cat tr')).filter(function(r){ return r.textContent.indexOf('Moon Light Moments') > -1; })[0];
+if (row){ var tg = row.querySelector('.tag'); if (tg) tg.textContent = 'Out now · Oct 26, 2026'; var l = row.querySelector('.tag-link'); if (l) l.textContent = 'Listen ↗'; }
 })();
 </script>
 
