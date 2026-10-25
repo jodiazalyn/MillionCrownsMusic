@@ -304,7 +304,7 @@ footer{position:relative;z-index:2}
 .thumb{aspect-ratio:16/9;width:100%;background:#0a0a0a;position:relative;overflow:hidden}
 .thumb.t-studio{background:repeating-linear-gradient(90deg,#0a0a0a 0 6px,transparent 6px 9px),linear-gradient(0deg,var(--brass) 0 35%,#333 35% 60%,#0a0a0a 60%)}
 .thumb.t-moon{background:radial-gradient(circle at 70% 40%,#fff3c4 0 18%,rgba(245,197,24,.35) 19% 30%,transparent 31%),#060606}
-.thumb.t-tour{background:linear-gradient(0deg,#000 0 30%,transparent 30%),repeating-linear-gradient(90deg,#000 0 10px,#1a1a1a 10px 14px,#000 14px 22px),conic-gradient(from 160deg at 50% 100%,transparent 0 10%,rgba(245,197,24,.6) 12%,transparent 16% 100%),#0a0a0a}
+.thumb.t-tour{background:url(video/on-the-road.jpg) center/cover,linear-gradient(0deg,#000 0 30%,transparent 30%),repeating-linear-gradient(90deg,#000 0 10px,#1a1a1a 10px 14px,#000 14px 22px),conic-gradient(from 160deg at 50% 100%,transparent 0 10%,rgba(245,197,24,.6) 12%,transparent 16% 100%),#0a0a0a}
 .thumb.t-vinyl{background:radial-gradient(circle,var(--brass) 0 10%,#050505 11% 12%,transparent 13%),repeating-radial-gradient(circle,#0d0d0d 0 2px,#202020 2px 3px)}
 .ch-txt{min-width:0;display:flex;flex-direction:column;gap:2px}
 .ch-txt b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.15rem;line-height:1}
@@ -1090,7 +1090,7 @@ var GOLD = '#f5c518';
 var CHANNELS = [
   {key:'studio', title:'In the Studio', sub:'', video:''},
   {key:'moon',   title:'Moon Light Moments', sub:window.MLM_OUT ? 'Jodieous · Out now' : 'Jodieous · Out October 26, 2026', video:''},
-  {key:'tour',   title:'On the Road', sub:'', video:''},
+  {key:'tour',   title:'On the Road', sub:'', video:'video/on-the-road.mp4', poster:'video/on-the-road.jpg', dur:16000},
   {key:'vinyl',  title:'The Catalog', sub:'MCM-001 to MCM-004 · Million Crowns Music', video:''}
 ];
 var DURATION = 8000;
@@ -1127,12 +1127,17 @@ function go(i){
   document.getElementById('chSub').textContent = c.sub;
   document.getElementById('chNum').textContent = 'CH 0' + (cur+1);
   btns.forEach(function(b, j){ b.setAttribute('aria-current', j === cur ? 'true' : 'false'); b.querySelector('.ch-bar').style.transform = 'scaleX(0)'; });
-  if (videoEl) { videoEl.remove(); videoEl = null; }
+  if (videoEl) { videoEl.pause(); videoEl.hidden = true; videoEl = null; }
   if (c.video) {
-    videoEl = document.createElement('video');
-    videoEl.src = c.video; videoEl.muted = true; videoEl.loop = true; videoEl.playsInline = true; videoEl.autoplay = true;
-    stage.insertBefore(videoEl, stage.querySelector('.ov'));
-    var p = videoEl.play(); if (p && p.catch) p.catch(function(){});
+    if (!c._el) {
+      c._el = document.createElement('video');
+      c._el.muted = true; c._el.loop = true; c._el.playsInline = true; c._el.setAttribute('playsinline',''); c._el.setAttribute('muted','');
+      c._el.preload = 'auto'; if (c.poster) c._el.poster = c.poster; c._el.src = c.video;
+      c._el.setAttribute('aria-hidden','true');
+      stage.insertBefore(c._el, stage.querySelector('.ov'));
+    }
+    videoEl = c._el; videoEl.hidden = false;
+    if (!reduce){ var p = videoEl.play(); if (p && p.catch) p.catch(function(){}); }
   }
 }
 
@@ -1236,10 +1241,10 @@ function frame(now){
   var t = now / 1000, el = now - started;
   if (!videoEl) { if (now < staticUntil && !reduce) scStatic(); else SCENES[CHANNELS[cur].key](reduce ? 0 : t); }
   else if (now < staticUntil && !reduce) scStatic(); else ctx.clearRect(0,0,W,H);
-  var p = Math.min(1, el / DURATION);
+  var D = CHANNELS[cur].dur || DURATION, p = Math.min(1, el / D);
   document.getElementById('chBar').style.transform = 'scaleX(' + p + ')';
   btns[cur].querySelector('.ch-bar').style.transform = 'scaleX(' + p + ')';
-  if (el >= DURATION) go(cur + 1);
+  if (el >= D) go(cur + 1);
 }
 if ('IntersectionObserver' in window) new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }).observe(stage);
 go(0); requestAnimationFrame(frame);
