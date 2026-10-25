@@ -310,7 +310,7 @@ footer{position:relative;z-index:2}
 .ch-txt b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.15rem;line-height:1}
 .ch-sub{font-size:.78rem;color:var(--bone-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ch .ch-bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--brass);transform-origin:0 50%;transform:scaleX(0)}
-@media (max-width:900px){.stage-wrap{grid-template-columns:1fr}.rail{flex-direction:row;overflow-x:auto;padding-bottom:4px}.rail-head{display:none}.ch{grid-template-columns:1fr;min-width:150px}.ch:hover{transform:none}}
+@media (max-width:900px){.stage-wrap{grid-template-columns:minmax(0,1fr)}.rail{flex-direction:row;overflow-x:auto;padding-bottom:4px}.rail-head{display:none}.ch{grid-template-columns:1fr;min-width:150px}.ch:hover{transform:none}}
 
 /* velocity tickers */
 .ticker-track{animation:none}
@@ -456,6 +456,42 @@ html.c-down .cur .lg{transform:scale(.8)}
 
 .mini-presave{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;background:var(--bone);color:var(--oxblood);padding:4px 8px;align-self:flex-start}
 .mini-presave:hover{background:var(--brass);color:#0a0a0a}
+
+/* ===== work with us ===== */
+.wwu-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;margin-bottom:40px;align-items:end}
+.wwu-intro .lead{font-family:var(--serif);font-style:italic;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;margin:0;text-wrap:balance}
+.wwu-intro p{margin:0;color:var(--bone-dim)}
+.tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid #0a0a0a}
+.track{padding:clamp(24px,3.6vw,44px);display:flex;flex-direction:column;gap:20px;min-width:0}
+.track.label-track{background:#0a0a0a;color:#fff}
+.track.rhc-track{background:var(--brass);color:#0a0a0a}
+.track-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.track-top .mono{color:inherit;opacity:.75}
+.track h3{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:.9}
+.track .sub{margin:0;max-width:46ch;opacity:.85}
+.track .who{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;padding:4px 8px;white-space:nowrap;opacity:.8}
+.svc{list-style:none;margin:0;padding:0;border-top:1px solid currentColor}
+.svc li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 0;border-bottom:1px solid rgba(127,127,127,.35)}
+.svc b{font-weight:600;font-size:1rem}
+.svc span{grid-column:1/-1;font-size:.9rem;opacity:.75}
+.label-track .svc{border-top-color:rgba(255,255,255,.4)}
+.label-track .svc li{border-bottom-color:rgba(255,255,255,.16)}
+.rhc-track .svc{border-top-color:rgba(10,10,10,.5)}
+.rhc-track .svc li{border-bottom-color:rgba(10,10,10,.18)}
+.track .btn{align-self:flex-start;margin-top:auto}
+.label-track .btn{border-color:#fff;color:#fff}
+.label-track .btn:hover{background:var(--brass);border-color:var(--brass);color:#0a0a0a}
+.rhc-track .btn{background:#0a0a0a;border-color:#0a0a0a;color:#fff}
+.rhc-track .btn:hover{background:#fff;border-color:#fff;color:#0a0a0a}
+.wwu-form-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;margin-top:56px;align-items:start}
+.wwu-form-wrap h3{margin:0 0 12px;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(2rem,4vw,3rem);line-height:.92}
+.wwu-form-wrap .aside p{margin:0 0 14px;color:var(--bone-dim)}
+.checks{display:flex;flex-wrap:wrap;gap:8px;grid-column:1/-1;border:0;margin:0;padding:0}
+.checks legend{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:8px;padding:0}
+.checks label{flex-direction:row;align-items:center;gap:8px;border:1px solid var(--line);padding:9px 12px;cursor:pointer;font-family:var(--body);font-size:.92rem;letter-spacing:0;text-transform:none;color:var(--bone);background:var(--oxblood)}
+.checks input{width:auto;margin:0;accent-color:#0a0a0a}
+.checks label:has(input:checked){background:var(--brass);border-color:var(--brass)}
+@media (max-width:900px){.tracks,.wwu-intro,.wwu-form-wrap{grid-template-columns:1fr}.wwu-intro{gap:16px}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -491,6 +527,7 @@ html.c-down .cur .lg{transform:scale(.8)}
       <li><a href="#about">Thesis</a></li>
       <li><a href="#network">Network</a></li>
       <li><a href="founders.html">Founders</a></li>
+      <li><a href="#work-with-us">Work with us</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -734,9 +771,80 @@ html.c-down .cur .lg{transform:scale(.8)}
     </div>
   </section>
 
+  <section class="block" id="work-with-us">
+    <div class="wrap">
+      <div class="sec-head" data-drift=".6"><span class="mono">07 / Work with us</span><h2>Build with Million Crowns</h2></div>
+      <div class="wwu-intro">
+        <p class="lead">Two ways in. Partner with the label, or bring your project to our creative studio.</p>
+        <p>Million Crowns works with emerging artists and their managers from the first record to the first sold-out room. Our sister company, Rawket House Creative, founded by Kelson "Rawk" Miller, handles the visuals, content, and rollout behind every release, for our roster and for artists outside it.</p>
+      </div>
+      <div class="tracks">
+        <article class="track label-track">
+          <div class="track-top"><span class="mono">Million Crowns Music</span><span class="who">For artists &amp; managers</span></div>
+          <h3>Label partnership</h3>
+          <p class="sub">For artists ready to build a career, not just drop a song. We co-invest, develop, and manage.</p>
+          <ul class="svc">
+              <li><b>Co-investment from day one</b><span>We put capital and infrastructure behind artists early, as partners in their growth.</span></li>
+              <li><b>Artist development and A&amp;R</b><span>Song selection, sound, identity, and long-term career planning.</span></li>
+              <li><b>Artist management</b><span>Day-to-day management, career strategy, and a team that runs every part of the rollout.</span></li>
+              <li><b>Release strategy and distribution</b><span>Single and project rollouts, pre-saves, and distribution to every major platform.</span></li>
+              <li><b>Producers, engineers, and studios</b><span>Sessions with platinum producers and time in major studios across LA, Chicago, Atlanta, and Houston.</span></li>
+              <li><b>Label and industry relationships</b><span>Access to label executives and major-label partners when the timing is right.</span></li>
+              <li><b>Marketing, press, and playlisting</b><span>Campaigns, press outreach, and pitching to editorial and independent playlists.</span></li>
+              <li><b>Touring and booking</b><span>Show routing, venue booking, and building a live audience city by city.</span></li>
+              <li><b>Brand partnerships and licensing</b><span>Sync, brand deals, and new income streams built around the artist.</span></li>
+          </ul>
+          <a class="btn" href="#inquiry" data-interest="label">Apply for a label partnership</a>
+        </article>
+        <article class="track rhc-track">
+          <div class="track-top"><span class="mono">Rawket House Creative</span><span class="who">For any artist</span></div>
+          <h3>Creative services</h3>
+          <p class="sub">Book the studio behind the Million Crowns look for your next single, project, or tour.</p>
+          <ul class="svc">
+              <li><b>Creative direction</b><span>A visual identity and world for every era and release.</span></li>
+              <li><b>Music videos and visualizers</b><span>Concept, shoot, and edit, from performance videos to looping visualizers.</span></li>
+              <li><b>Photography</b><span>Press photos, portraits, and behind-the-scenes coverage.</span></li>
+              <li><b>Cover art and design</b><span>Single and album artwork, logos, tour flyers, and merch graphics.</span></li>
+              <li><b>EPKs and press kits</b><span>One-sheets, bios, and electronic press kits that get artists booked and covered.</span></li>
+              <li><b>Social content</b><span>Short-form video, rollout content, and content calendars built for each release.</span></li>
+              <li><b>Websites and smart links</b><span>Artist sites, link pages, and pre-save landing pages.</span></li>
+              <li><b>Rollout planning</b><span>A release calendar that ties the music, visuals, and promotion together.</span></li>
+          </ul>
+          <a class="btn" href="#inquiry" data-interest="creative">Book creative services</a>
+        </article>
+      </div>
+      <div class="wwu-form-wrap" id="inquiry">
+        <div class="aside">
+          <h3>Start the conversation</h3>
+          <p>Tell us who you are and what you are working on. We read every inquiry and follow up with the ones that fit.</p>
+          <p>Prefer email? Reach Rawk directly at miller@millioncrownsmusic.com.</p>
+        </div>
+        <form id="wwu" name="work-with-us" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="work-with-us">
+          <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <h3 style="font-size:2rem">Inquiry</h3>
+          <label for="w-name">Name<input id="w-name" name="name" required placeholder="Artist or manager name"></label>
+          <label for="w-email">Email<input id="w-email" name="email" type="email" required placeholder="you@example.com"></label>
+          <label for="w-role">I am<select id="w-role" name="role"><option>An artist</option><option>A manager</option><option>A label or brand</option><option>Other</option></select></label>
+          <label for="w-city">City<input id="w-city" name="city" placeholder="Where you're based"></label>
+          <fieldset class="checks">
+            <legend>Interested in</legend>
+            <label><input type="checkbox" name="interest" value="Label partnership" id="w-int-label"> Label partnership</label>
+            <label><input type="checkbox" name="interest" value="Artist management" id="w-int-mgmt"> Artist management</label>
+            <label><input type="checkbox" name="interest" value="Rawket House Creative services" id="w-int-creative"> Creative services</label>
+          </fieldset>
+          <label class="full" for="w-links">Links<input id="w-links" name="links" placeholder="Spotify, Instagram, YouTube, or a private listening link"></label>
+          <label class="full" for="w-msg">What are you working on?<textarea id="w-msg" name="message" placeholder="Your music, your goals, and what you need help with"></textarea></label>
+          <div class="full"><button class="btn solid" type="submit">Send inquiry</button></div>
+          <p class="form-msg" id="w-msg-out" role="status" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="contact">
     <div class="wrap">
-      <div class="sec-head" data-drift=".6"><span class="mono">07 / Get in touch</span><h2>Contact</h2></div>
+      <div class="sec-head" data-drift=".6"><span class="mono">08 / Get in touch</span><h2>Contact</h2></div>
       <div class="contact">
         <div class="desk">
           <div class="desk-row">
@@ -1267,6 +1375,31 @@ while ((n = w.nextNode())){
 }
 var row = [].slice.call(document.querySelectorAll('.cat tr')).filter(function(r){ return r.textContent.indexOf('Moon Light Moments') > -1; })[0];
 if (row){ var tg = row.querySelector('.tag'); if (tg) tg.textContent = 'Out now · Oct 26, 2026'; var l = row.querySelector('.tag-link'); if (l) l.textContent = 'Listen ↗'; }
+})();
+
+/* work with us: preselect interest from the track buttons, and submit the inquiry */
+(function(){
+var f = document.getElementById('wwu'); if (!f) return;
+document.querySelectorAll('[data-interest]').forEach(function(a){
+  a.addEventListener('click', function(){
+    var id = a.dataset.interest === 'label' ? 'w-int-label' : 'w-int-creative';
+    var cb = document.getElementById(id); if (cb) cb.checked = true;
+    setTimeout(function(){ document.getElementById('w-name').focus({preventScroll:true}); }, 600);
+  });
+});
+f.addEventListener('submit', function(e){
+  e.preventDefault();
+  var out = document.getElementById('w-msg-out'), btn = f.querySelector('button[type=submit]');
+  var bad = ['w-name','w-email'].filter(function(id){ return !document.getElementById(id).checkValidity(); });
+  out.hidden = false;
+  if (bad.length){ out.textContent = 'Add your name and a valid email to send your inquiry.'; document.getElementById(bad[0]).focus(); return; }
+  var who = document.getElementById('w-name').value;
+  btn.disabled = true; out.textContent = 'Sending...';
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); out.textContent='Thanks, '+who+'. Your inquiry is in. We will follow up if it is a fit.'; f.reset(); })
+    .catch(function(){ out.textContent='That did not go through. Email miller@millioncrownsmusic.com instead.'; })
+    .then(function(){ btn.disabled=false; });
+});
 })();
 </script>
 
