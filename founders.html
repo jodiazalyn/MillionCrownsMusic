@@ -222,6 +222,28 @@ html.c-down .cur .lg{transform:scale(.8)}
 
 .portrait.has-photo{background:transparent;padding:0;display:grid;place-items:center;overflow:visible;border:0;aspect-ratio:1}
 .portrait.has-photo img{width:100%;height:100%;object-fit:contain;max-width:none;display:block}
+
+/* ===== mobile text safety ===== */
+p,li,dd,dt,b,span,a,h1,h2,h3,label,code,small,td{overflow-wrap:break-word}
+.facts dd,.addr code,.f-list li,.soc-h,.mci-m{overflow-wrap:anywhere}
+@media (max-width:520px){
+  .facts{grid-template-columns:1fr}
+  .sec-head h2{font-size:clamp(2rem,10vw,2.6rem)}
+  .artist-body h3{font-size:clamp(2.6rem,13vw,3.4rem)}
+  .feature-body h3{font-size:clamp(2.4rem,12vw,3.2rem)}
+  .track h3{font-size:clamp(2rem,10vw,2.6rem)}
+  .bio h3,.f-body h2{font-size:clamp(1.8rem,9vw,2.4rem)}
+  .beginning{font-size:clamp(2.2rem,11vw,3rem)}
+  .links .btn,.cta .btn{flex:1 1 auto;justify-content:center;text-align:center}
+  .btn{padding:12px 14px;letter-spacing:.08em}
+  .cities-list li{font-size:1.05rem}
+  .countdown div{min-width:0;flex:1}
+  .track-top{flex-wrap:wrap}
+  .wwu-form-wrap form,.contact form{padding:18px}
+  .checks label{flex:1 1 100%}
+  .mini{padding:18px}
+  .stop{padding:20px}
+}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="crown" viewBox="0 0 64 48"><path fill="currentColor" d="M2 14l14 12L32 2l16 24 14-12-6 30H8z"/><rect fill="currentColor" x="8" y="44" width="48" height="4"/></symbol>
