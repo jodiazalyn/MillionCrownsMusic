@@ -305,7 +305,7 @@ footer{position:relative;z-index:2}
 .thumb.t-studio{background:url(video/in-the-studio.jpg) center/cover,repeating-linear-gradient(90deg,#0a0a0a 0 6px,transparent 6px 9px),linear-gradient(0deg,var(--brass) 0 35%,#333 35% 60%,#0a0a0a 60%)}
 .thumb.t-moon{background:radial-gradient(circle at 70% 40%,#fff3c4 0 18%,rgba(245,197,24,.35) 19% 30%,transparent 31%),#060606}
 .thumb.t-tour{background:url(video/on-the-road.jpg) center/cover,linear-gradient(0deg,#000 0 30%,transparent 30%),repeating-linear-gradient(90deg,#000 0 10px,#1a1a1a 10px 14px,#000 14px 22px),conic-gradient(from 160deg at 50% 100%,transparent 0 10%,rgba(245,197,24,.6) 12%,transparent 16% 100%),#0a0a0a}
-.thumb.t-vinyl{background:radial-gradient(circle,var(--brass) 0 10%,#050505 11% 12%,transparent 13%),repeating-radial-gradient(circle,#0d0d0d 0 2px,#202020 2px 3px)}
+.thumb.t-vinyl{background:url(video/the-catalog.jpg) center/cover,radial-gradient(circle,var(--brass) 0 10%,#050505 11% 12%,transparent 13%),repeating-radial-gradient(circle,#0d0d0d 0 2px,#202020 2px 3px)}
 .ch-txt{min-width:0;display:flex;flex-direction:column;gap:2px}
 .ch-txt b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.15rem;line-height:1}
 .ch-sub{font-size:.78rem;color:var(--bone-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -1091,7 +1091,7 @@ var CHANNELS = [
   {key:'studio', title:'In the Studio', sub:'', video:'video/in-the-studio.mp4', poster:'video/in-the-studio.jpg', dur:16000},
   {key:'moon',   title:'Moon Light Moments', sub:window.MLM_OUT ? 'Jodieous · Out now' : 'Jodieous · Out October 26, 2026', video:''},
   {key:'tour',   title:'On the Road', sub:'', video:'video/on-the-road.mp4', poster:'video/on-the-road.jpg', dur:16000},
-  {key:'vinyl',  title:'The Catalog', sub:'MCM-001 to MCM-004 · Million Crowns Music', video:''}
+  {key:'vinyl',  title:'The Catalog', sub:'What You Been Missing · Jodieous', video:'video/the-catalog.mp4', poster:'video/the-catalog.jpg', dur:16000}
 ];
 var DURATION = 8000;
 var stage = document.getElementById('stage'), cv = document.getElementById('tv');
