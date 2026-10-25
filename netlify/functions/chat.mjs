@@ -2,7 +2,10 @@
 // Requires the ANTHROPIC_API_KEY environment variable in Netlify
 // (Site configuration > Environment variables).
 
-const MODEL = process.env.CHAT_MODEL || 'claude-haiku-5-5';
+// Netlify's AI Gateway can supply ANTHROPIC_API_KEY and ANTHROPIC_BASE_URL automatically.
+const BASE_URL = (process.env.ANTHROPIC_BASE_URL || 'https://api.anthropic.com').replace(/\/+$/, '');
+const MODELS = (process.env.CHAT_MODEL ? [process.env.CHAT_MODEL] : [])
+  .concat(['claude-haiku-5-5', 'claude-sonnet-5-5', 'claude-haiku-4-5', 'claude-sonnet-4-5']);
 const MAX_TURNS = 12;      // messages of history sent to the model
 const MAX_CHARS = 1200;    // per visitor message
 
@@ -85,23 +88,29 @@ export default async (req) => {
   while (messages.length && messages[0].role !== 'user') messages.shift();
   if (!messages.length || messages[messages.length - 1].role !== 'user') return json(400, { error: 'Send a question.' });
 
-  try {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model: MODEL, max_tokens: 500, system: SYSTEM, messages }),
-    });
-    if (!r.ok) {
-      console.error('Anthropic API error', r.status, await r.text());
-      return json(502, { error: 'upstream' });
+  let lastStatus = 0;
+  for (const model of MODELS) {
+    try {
+      const r = await fetch(BASE_URL + '/v1/messages', {
+        method: 'POST',
+        headers: { 'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+        body: JSON.stringify({ model, max_tokens: 500, system: SYSTEM, messages }),
+      });
+      if (!r.ok) {
+        lastStatus = r.status;
+        console.error('Claude API error', model, r.status, (await r.text()).slice(0, 500));
+        if (r.status === 400 || r.status === 404) continue; // model not available here, try the next one
+        break;
+      }
+      const data = await r.json();
+      const reply = (data.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
+      return json(200, { reply: reply || 'Sorry, I did not catch that. Could you ask another way?' });
+    } catch (e) {
+      console.error(e);
+      break;
     }
-    const data = await r.json();
-    const reply = (data.content || []).filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
-    return json(200, { reply: reply || 'Sorry, I did not catch that. Could you ask another way?' });
-  } catch (e) {
-    console.error(e);
-    return json(502, { error: 'upstream' });
   }
+  return json(502, { error: 'upstream', status: lastStatus });
 };
 
 export const config = { path: '/api/chat' };
