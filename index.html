@@ -492,6 +492,47 @@ html.c-down .cur .lg{transform:scale(.8)}
 .checks input{width:auto;margin:0;accent-color:#0a0a0a}
 .checks label:has(input:checked){background:var(--brass);border-color:var(--brass)}
 @media (max-width:900px){.tracks,.wwu-intro,.wwu-form-wrap{grid-template-columns:1fr}.wwu-intro{gap:16px}}
+
+/* ===== Million Crowns Intelligence chat ===== */
+.mci-tab{position:fixed;left:0;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:10px;background:#0a0a0a;color:#fff;border:0;border-left:4px solid var(--brass);padding:14px 18px 14px calc(14px + env(safe-area-inset-left,0px));cursor:pointer;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;box-shadow:6px 8px 24px rgba(0,0,0,.28);transform:translateX(-6px);transition:transform .3s cubic-bezier(.2,.9,.3,1.2),background .2s;animation:mciNudge 5s ease-in-out 2.5s infinite}
+.mci-tab:hover{transform:translateX(0);background:#1a1a1a}
+.mci-tab:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.mci-tab .lg{width:26px;height:20px}
+.mci-tab b{display:block;font-family:var(--display);font-weight:400;font-size:1.05rem;letter-spacing:.04em;line-height:1}
+.mci-tab .dot{width:8px;height:8px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 0 rgba(245,197,24,.7);animation:mciPulse 2s infinite}
+@keyframes mciPulse{70%{box-shadow:0 0 0 10px rgba(245,197,24,0)}100%{box-shadow:0 0 0 0 rgba(245,197,24,0)}}
+@keyframes mciNudge{0%,88%,100%{transform:translateX(-6px)}92%{transform:translateX(4px)}96%{transform:translateX(-2px)}}
+html.mci-open .mci-tab{transform:translateX(-110%);animation:none}
+.mci{position:fixed;left:0;bottom:0;z-index:61;width:min(400px,100vw);height:min(620px,calc(100vh - 80px));display:flex;flex-direction:column;background:var(--oxblood);border:1px solid #0a0a0a;border-left:0;box-shadow:12px 0 40px rgba(0,0,0,.3);transform:translateX(-105%);transition:transform .45s cubic-bezier(.2,.9,.3,1);padding-bottom:env(safe-area-inset-bottom,0px)}
+html.mci-open .mci{transform:translateX(0)}
+.mci-head{display:flex;align-items:center;gap:12px;background:#0a0a0a;color:#fff;padding:16px 16px 16px calc(18px + env(safe-area-inset-left,0px))}
+.mci-head .lg{width:34px;height:26px}
+.mci-head div{flex:1;min-width:0}
+.mci-head b{display:block;font-family:var(--display);font-weight:400;font-size:1.35rem;text-transform:uppercase;line-height:1}
+.mci-head small{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.mci-x{all:unset;cursor:pointer;width:36px;height:36px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.3);font-size:1.1rem}
+.mci-x:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.mci-log{flex:1;overflow-y:auto;padding:18px 16px 8px calc(16px + env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:10px}
+.mci-m{max-width:85%;padding:10px 13px;font-size:.93rem;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
+.mci-m.bot{align-self:flex-start;background:var(--oxblood-2);border:1px solid var(--line)}
+.mci-m.me{align-self:flex-end;background:#0a0a0a;color:#fff}
+.mci-m a{color:inherit;text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:2px}
+.mci-m.typing{display:flex;gap:4px;align-items:center}
+.mci-m.typing i{width:6px;height:6px;border-radius:50%;background:var(--gold-ink);animation:mciDot 1s infinite alternate}
+.mci-m.typing i:nth-child(2){animation-delay:.2s}.mci-m.typing i:nth-child(3){animation-delay:.4s}
+@keyframes mciDot{to{opacity:.2;transform:translateY(-3px)}}
+.mci-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px calc(16px + env(safe-area-inset-left,0px))}
+.mci-chips button{all:unset;cursor:pointer;border:1px solid var(--line);padding:7px 10px;font-size:.82rem;background:var(--oxblood)}
+.mci-chips button:hover{border-color:#0a0a0a;background:var(--brass)}
+.mci-chips button:focus-visible{outline:2px solid var(--gold-ink)}
+.mci-form{display:flex;gap:8px;border-top:1px solid var(--line);padding:12px 12px 12px calc(12px + env(safe-area-inset-left,0px))}
+.mci-form textarea{flex:1;min-height:44px;max-height:120px;resize:none;font-size:.95rem;padding:11px 12px}
+.mci-form button{all:unset;cursor:pointer;background:#0a0a0a;color:#fff;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:0 16px}
+.mci-form button:hover{background:var(--brass);color:#0a0a0a}
+.mci-form button[disabled]{opacity:.4;cursor:default}
+.mci-note{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone-dim);text-align:center;padding:0 12px 10px}
+@media (max-width:560px){.mci{width:100vw;height:min(80vh,620px);border-left:1px solid #0a0a0a}.mci-tab{bottom:calc(20px + env(safe-area-inset-bottom,0px));padding:12px 14px 12px calc(10px + env(safe-area-inset-left,0px))}.mci-tab small{display:none}}
+@media (prefers-reduced-motion:reduce){.mci-tab,.mci-tab .dot{animation:none}.mci{transition:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -919,6 +960,33 @@ html.c-down .cur .lg{transform:scale(.8)}
   </div>
 </div>
 <audio id="teaser" preload="none"></audio>
+
+
+<button class="mci-tab" id="mciTab" type="button" aria-controls="mci" aria-expanded="false">
+  <span class="dot" aria-hidden="true"></span>
+  <span class="lg lg-crown-gold" aria-hidden="true"></span>
+  <span><b>Ask Million Crowns</b><small>Intelligence · online</small></span>
+</button>
+<aside class="mci" id="mci" aria-label="Million Crowns Intelligence chat" aria-hidden="true">
+  <div class="mci-head">
+    <span class="lg lg-crown-gold" aria-hidden="true"></span>
+    <div><b>Million Crowns Intelligence</b><small>Label · Artists · Services</small></div>
+    <button class="mci-x" id="mciX" type="button" aria-label="Close chat">×</button>
+  </div>
+  <div class="mci-log" id="mciLog" role="log" aria-live="polite"></div>
+  <div class="mci-chips" id="mciChips">
+    <button type="button">How do I sign with Million Crowns?</button>
+    <button type="button">What does Rawket House Creative offer?</button>
+    <button type="button">When does Moon Light Moments drop?</button>
+    <button type="button">How do I submit a demo?</button>
+  </div>
+  <form class="mci-form" id="mciForm">
+    <label class="sr" for="mciIn" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your question</label>
+    <textarea id="mciIn" rows="1" maxlength="1200" placeholder="Ask anything about Million Crowns"></textarea>
+    <button type="submit" id="mciSend">Send</button>
+  </form>
+  <div class="mci-note">AI assistant · answers may be imperfect</div>
+</aside>
 
 <footer>
   <div class="wrap foot">
@@ -1400,6 +1468,51 @@ f.addEventListener('submit', function(e){
     .catch(function(){ out.textContent='That did not go through. Email miller@millioncrownsmusic.com instead.'; })
     .then(function(){ btn.disabled=false; });
 });
+})();
+
+/* Million Crowns Intelligence chat */
+(function(){
+var root = document.documentElement, panel = document.getElementById('mci'), tab = document.getElementById('mciTab');
+var log = document.getElementById('mciLog'), form = document.getElementById('mciForm'), input = document.getElementById('mciIn');
+var send = document.getElementById('mciSend'), chips = document.getElementById('mciChips');
+var history = [], busy = false, greeted = false;
+var FALLBACK = 'I am not connected right now. For label partnerships or creative services, use the Inquiry form in Work with us or email miller@millioncrownsmusic.com. For press, email press@millioncrownsmusic.com.';
+function linkify(t){
+  var d = document.createElement('div'); d.textContent = t; var h = d.innerHTML;
+  h = h.replace(/(https?:\/\/[^\s<]+[^\s<.,)!?])/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  h = h.replace(/\b([A-Za-z0-9._%+-]+@millioncrownsmusic\.com)\b/g, '<a href="mailto:$1">$1</a>');
+  return h;
+}
+function add(role, text){
+  var m = document.createElement('div'); m.className = 'mci-m ' + (role === 'user' ? 'me' : 'bot');
+  if (role === 'user') m.textContent = text; else m.innerHTML = linkify(text);
+  log.appendChild(m); log.scrollTop = log.scrollHeight; return m;
+}
+function open(){
+  root.classList.add('mci-open'); panel.setAttribute('aria-hidden','false'); tab.setAttribute('aria-expanded','true');
+  if (!greeted){ greeted = true; add('assistant', 'Welcome to Million Crowns. I can tell you about our artists, releases, and how to work with the label or Rawket House Creative. What would you like to know?'); }
+  setTimeout(function(){ input.focus(); }, 350);
+}
+function close(){ root.classList.remove('mci-open'); panel.setAttribute('aria-hidden','true'); tab.setAttribute('aria-expanded','false'); tab.focus(); }
+tab.addEventListener('click', open);
+document.getElementById('mciX').addEventListener('click', close);
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && root.classList.contains('mci-open')) close(); });
+function ask(q){
+  q = (q || '').trim(); if (!q || busy) return;
+  busy = true; send.disabled = true; chips.hidden = true;
+  add('user', q); history.push({role:'user', content:q});
+  input.value = ''; input.style.height = '';
+  var t = document.createElement('div'); t.className = 'mci-m bot typing'; t.innerHTML = '<i></i><i></i><i></i>'; log.appendChild(t); log.scrollTop = log.scrollHeight;
+  fetch('/api/chat', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({messages: history.slice(-12)})})
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ if (!r.ok || !d.reply) throw new Error(d.error || r.status); return d.reply; }); })
+    .then(function(reply){ t.remove(); add('assistant', reply); history.push({role:'assistant', content:reply}); })
+    .catch(function(){ t.remove(); add('assistant', FALLBACK); history.pop(); })
+    .then(function(){ busy = false; send.disabled = false; input.focus(); });
+}
+form.addEventListener('submit', function(e){ e.preventDefault(); ask(input.value); });
+input.addEventListener('keydown', function(e){ if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); ask(input.value); } });
+input.addEventListener('input', function(){ input.style.height = ''; input.style.height = Math.min(input.scrollHeight, 120) + 'px'; });
+chips.addEventListener('click', function(e){ var b = e.target.closest('button'); if (b) ask(b.textContent); });
 })();
 </script>
 
